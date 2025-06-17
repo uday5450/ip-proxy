@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Free Proxy List</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Sen:400,700,800&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   </head>
+   <body>
+      <div class="header_section">
+         <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand"href="index.html"><img src="images/logo.png"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html#ip_lookup_section">IP Lookup</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html#buy_sell_section">Buy/Sell IPs</a>
+                     </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="free-proxy.html">Free Proxy List</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                     </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                  </form>
+               </div>
+            </nav>
+            <div class="custom_bg">
+               <div class="custom_menu">
+                  <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="index.html#ip_lookup_section">IP Lookup</a></li>
+                     <li><a href="index.html#buy_sell_section">Buy/Sell IPs</a></li>
+                     <li class="active"><a href="free-proxy.html">Free Proxy List</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+               </div>
+               <form class="form-inline my-2 my-lg-0">
+                  <div class="search_btn">
+                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- header section end -->
+
+      <!-- proxy list section start -->
+      <div class="proxy_list_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="proxy_list_taital">Free Proxy List</h1>
+                  <p class="proxy_list_text">Browse and filter thousands of free proxies updated hourly. Find the perfect proxy for your needs.</p>
+               </div>
+            </div>
+            <div class="proxy_search_section">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="showEntries">Show entries</label>
+                            <select class="form-control" id="showEntries">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group float-right">
+                            <label for="searchProxy">Type search here</label>
+                            <input type="text" class="form-control" id="searchProxy" placeholder="Type search here">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="proxy_table_section">
+               <div class="table-responsive">
+                  <table class="table table-bordered proxy_table">
+                     <thead>
+                        <tr>
+                           <th>IP ADDRESS <i class="fa fa-sort"></i></th>
+                           <th>PORT <i class="fa fa-sort"></i></th>
+                           <th>COUNTRY <i class="fa fa-sort"></i></th>
+                           <th>ANONYMITY <i class="fa fa-sort"></i></th>
+                           <th>PROTOCOL <i class="fa fa-sort"></i></th>
+                           <th>SPEED <i class="fa fa-sort"></i></th>
+                           <th>UPTIME <i class="fa fa-sort"></i></th>
+                           <th>LAST CHECKED <i class="fa fa-sort"></i></th>
+                        </tr>
+                     </thead>
+                     <tbody id="proxyTableBody">
+                        <!-- Proxy data will be loaded here by JavaScript -->
+                     </tbody>
+                  </table>
+               </div>
+               <div class="pagination_controls">
+                   <button id="prevPage" class="btn btn-primary">Previous</button>
+                   <span id="pageInfo" class="mx-2">Page 1 of 1</span>
+                   <button id="nextPage" class="btn btn-primary">Next</button>
+               </div>
+            </div>
+
+            <!-- Advanced Search section -->
+            <div class="advanced_search_section layout_padding">
+                <h2 class="advanced_search_taital">Advanced Search</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="countryFilter">Country</label>
+                            <select class="form-control" id="countryFilter">
+                                <option value="">All Countries</option>
+                                <!-- Countries will be loaded dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="anonymityFilter">Anonymity</label>
+                            <select class="form-control" id="anonymityFilter">
+                                <option value="">Any Level</option>
+                                <option value="Transparent">Transparent</option>
+                                <option value="Anonymous">Anonymous</option>
+                                <option value="Elite">Elite</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="protocolFilter">Protocol</label>
+                            <select class="form-control" id="protocolFilter">
+                                <option value="">All Protocols</option>
+                                <option value="HTTP">HTTP</option>
+                                <option value="HTTPS">HTTPS</option>
+                                <option value="SOCKS4">SOCKS4</option>
+                                <option value="SOCKS5">SOCKS5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-primary apply_filters_btn" id="applyFilters">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </div>
+      <!-- proxy list section end -->
+
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4">
+                  <h3 class="footer_text">Useful links</h3>
+                  <div class="footer_menu">
+                     <ul>
+                        <li class="active"><a href="index.html"><span class="angle_icon active"><i class="fa fa-arrow-right" aria-hidden="true"></i></span> Home</a></li>
+                        <li><a href="index.html#ip_lookup_section"><span class="angle_icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span> IP Lookup</a></li>
+                        <li><a href="index.html#buy_sell_section"><span class="angle_icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span> Buy/Sell IPs</a></li>
+                        <li><a href="free-proxy.html"><span class="angle_icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span> Free Proxy List</a></li>
+                        <li><a href="contact.html"><span class="angle_icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span> Contact Us</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <h3 class="footer_text">Address</h3>
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#">
+                           <span class="padding_left_10"><i class="fa fa-map-marker" aria-hidden="true"></i></span>It is a long established fact that a<br> reader will be distracted</a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>(+71) 1234567890<br>(+71) 1234567890
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span>demo@gmail.com
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <div class="footer_main">
+                     <h3 class="footer_text">Find Us</h3>
+                     <p class="dummy_text">more-or-less normal distribution </p>
+                     <div class="social_icon">
+                        <ul>
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a>. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html> 
