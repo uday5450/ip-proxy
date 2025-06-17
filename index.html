@@ -252,6 +252,29 @@
          </div>
       </div>
       <!-- copyright section end -->
+      <!-- Cookie Consent Banner -->
+      <div id="cookieConsentBanner" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#222; color:#fff; padding:20px; z-index:9999; text-align:center;">
+        <span>
+          This website uses cookies to ensure you get the best experience.
+          <a href="#" style="color:#4caf50; text-decoration:underline;" onclick="showCookieSettings();return false;">Cookie Settings</a>
+        </span>
+        <button onclick="acceptCookies()" style="margin-left:20px;">Accept</button>
+        <button onclick="rejectCookies()" style="margin-left:10px;">Reject</button>
+      </div>
+      <!-- Cookie Settings Modal -->
+      <div id="cookieSettingsModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.7); z-index:10000; align-items:center; justify-content:center;">
+        <div style="background:#fff; color:#222; padding:30px; border-radius:8px; max-width:400px; margin:auto; margin-top:10%;">
+          <h3>Cookie Settings</h3>
+          <p>Choose which cookies you want to allow:</p>
+          <label><input type="checkbox" id="analyticsCookies" checked disabled> Necessary (always on)</label><br>
+          <label><input type="checkbox" id="marketingCookies"> Marketing</label><br>
+          <label><input type="checkbox" id="preferencesCookies"> Preferences</label><br>
+          <div style="margin-top:20px;">
+            <button onclick="saveCookieSettings()">Save Settings</button>
+            <button onclick="closeCookieSettings()" style="margin-left:10px;">Cancel</button>
+          </div>
+        </div>
+      </div>
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
@@ -261,5 +284,62 @@
       <!-- sidebar -->
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
+      <script>
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+      }
+      function getCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for(let i=0;i < ca.length;i++) {
+          let c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+      }
+      function eraseCookie(name) {
+        document.cookie = name+'=; Max-Age=-99999999;';
+      }
+      function showCookieBanner() {
+        if (!getCookie('cookieConsent')) {
+          document.getElementById('cookieConsentBanner').style.display = 'block';
+        }
+      }
+      function acceptCookies() {
+        setCookie('cookieConsent', 'accepted', 365);
+        document.getElementById('cookieConsentBanner').style.display = 'none';
+      }
+      function rejectCookies() {
+        setCookie('cookieConsent', 'rejected', 365);
+        document.getElementById('cookieConsentBanner').style.display = 'none';
+      }
+      function showCookieSettings() {
+        document.getElementById('cookieSettingsModal').style.display = 'flex';
+      }
+      function closeCookieSettings() {
+        document.getElementById('cookieSettingsModal').style.display = 'none';
+      }
+      function saveCookieSettings() {
+        // Example: Save marketing and preferences cookies
+        const marketing = document.getElementById('marketingCookies').checked;
+        const preferences = document.getElementById('preferencesCookies').checked;
+        setCookie('cookieMarketing', marketing ? '1' : '0', 365);
+        setCookie('cookiePreferences', preferences ? '1' : '0', 365);
+        setCookie('cookieConsent', 'custom', 365);
+        closeCookieSettings();
+        document.getElementById('cookieConsentBanner').style.display = 'none';
+      }
+      // Optionally, add a link in your footer/menu to open settings again
+      window.showCookieSettings = showCookieSettings;
+      // Show banner on page load if not set
+      window.onload = showCookieBanner;
+      </script>
    </body>
 </html>
